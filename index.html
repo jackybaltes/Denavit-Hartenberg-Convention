@@ -1,0 +1,1030 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Denavit Hartenberg Convention</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/ntnuerc.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <script src="https://daybrush.com/scenejs/release/latest/dist/scene.min.js"></script>
+		
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <script src="js/ntnu.js"></script>
+    </head>
+    <body>
+        <div class="reveal">
+        <div class="slides">
+            
+<section id="first" data-state="first">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1> Denavit Hartenberg Convention</h1>
+
+   <div class="author" style="text-align:center;">
+    
+<p>
+      Jacky Baltes<br>
+      National Taiwan Normal University<br>
+      Taipei, Taiwan<br>
+      <a href="mailto:jacky.baltes@ntnu.edu.tw">jacky.baltes@ntnu.edu.tw</a><br>
+</p>
+
+   </div>
+   <div class="date">
+    07 June 2020
+   </div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-fdc9ea4b-cc33-42f3-aa9a-7b506fe5d628" ><span id="id-fdc9ea4b-cc33-42f3-aa9a-7b506fe5d628"><img id="img-id-fdc9ea4b-cc33-42f3-aa9a-7b506fe5d628"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-22839ac6-a467-4715-9318-82559abb7863" ><span id="id-22839ac6-a467-4715-9318-82559abb7863"><img id="img-id-22839ac6-a467-4715-9318-82559abb7863" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00003_frag_00001" data-state="slide_00003_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<span id="id-3d7e13a9-73bf-4de4-b930-1c4a1624fe9f" ><span id="id-3d7e13a9-73bf-4de4-b930-1c4a1624fe9f"><img id="img-id-3d7e13a9-73bf-4de4-b930-1c4a1624fe9f"     src="assets/images/thor1.jpg"/></span>
+</span>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-a87c36da-9526-4e36-aced-c5a3313f56cb" ><span id="id-a87c36da-9526-4e36-aced-c5a3313f56cb"><img id="img-id-a87c36da-9526-4e36-aced-c5a3313f56cb"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-2d745f77-6e3e-44fa-8b63-ac75a4b449f1" ><span id="id-2d745f77-6e3e-44fa-8b63-ac75a4b449f1"><img id="img-id-2d745f77-6e3e-44fa-8b63-ac75a4b449f1" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00004_frag_00001" data-state="slide_00004_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+<div class="document" id="denavit-hartenberg-convention">
+<h1 class="title">Denavit Hartenberg Convention</h1>
+<div class="jb-text docutils container">
+<p>Coordinate systems can attach freely to a link</p>
+<p>DH-Convention leads to a simplified setup</p>
+<p>The transformation matrix is a 4*4 matrix (16 unknowns)</p>
+<ul class="simple">
+<li>The last row we know is <cite>0 0 0 1</cite></li>
+<li>We are left with 12 unknowns</li>
+</ul>
+<p>Using the DH-Convention, we only need four numbers to define the
+transformation matrix</p>
+</div>
+</div>
+
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-b9dfecba-2d1f-4398-ad71-3867e85d8335" ><span id="id-b9dfecba-2d1f-4398-ad71-3867e85d8335"><img id="img-id-b9dfecba-2d1f-4398-ad71-3867e85d8335"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-7abb1dbe-bb45-468c-bb4b-f937dbc19527" ><span id="id-7abb1dbe-bb45-468c-bb4b-f937dbc19527"><img id="img-id-7abb1dbe-bb45-468c-bb4b-f937dbc19527" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00005_frag_00001" data-state="slide_00005_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>Transformation Matrices</h1>
+
+<div class="jb-text">
+<p>
+  \[
+T^i_j = \left[
+      \begin{array}{cc}
+        R^{i}_j & o^{i}_j \\
+        0 & 1 \\
+      \end{array}           
+\right]
+  \]
+</p>
+
+<p>Rotation matrices \(R^i_j \) is a 3*3 matrix, but can be completely defined by three Euler angles (Rotation along X, Y, Z)</p>
+
+<p>So we are left with six unknowns</p>
+
+<p>DH Convention only uses <span style="color:red">four</span> numbers</p>
+
+<p>Possible through clever choice of the position of the coordinate frames to
+simplify the analysis</p>
+  
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-a0646f31-d661-4ab6-949f-f3ecda29162b" ><span id="id-a0646f31-d661-4ab6-949f-f3ecda29162b"><img id="img-id-a0646f31-d661-4ab6-949f-f3ecda29162b"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-9fb09da1-d5db-43b9-a049-559e377c6674" ><span id="id-9fb09da1-d5db-43b9-a049-559e377c6674"><img id="img-id-9fb09da1-d5db-43b9-a049-559e377c6674" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00006_frag_00001" data-state="slide_00006_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>DH Assumptions</h1>
+
+<div class="jb-text">
+<p>Place the coordinate systems so that the Z-axis aligns with the <span class="jb-emph">axis of actuation</emph> of the joint</p>
+
+<p>The <span class="jb-emph">axis of actuation</emph> of a revolute joint is the axis that we rotate around 
+(joint variable \(\theta_i\) will rotate along \(Z_{i-1}\) )</p>
+                                                                                                             
+<p>The <span class="jb-emph">axis of actuation</emph> of a prismatic joint is the axis that we translate along 
+(joint variable \( d_i \) will translate along \( Z_{i-1} \) )</p>
+
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-94f18b84-50ee-42a1-af17-c7f9b60f9d08" ><span id="id-94f18b84-50ee-42a1-af17-c7f9b60f9d08"><img id="img-id-94f18b84-50ee-42a1-af17-c7f9b60f9d08"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-85d0ced1-b314-473e-87eb-7dec1ca058b9" ><span id="id-85d0ced1-b314-473e-87eb-7dec1ca058b9"><img id="img-id-85d0ced1-b314-473e-87eb-7dec1ca058b9" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00007_frag_00001" data-state="slide_00007_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>DH Assumption 1</h1>
+
+<div class="jb-text">
+
+<p>
+  \[
+T^i_j = \left[
+      \begin{array}{cccc}
+        r_{11} & r_{12} & r_{13} & o_{14} \\
+        r_{21} & r_{22} & r_{23} & o_{24} \\
+        r_{31} & r_{32} & r_{33} & o_{34} \\
+        0 & 0 & 0 & 1 \\
+      \end{array}           
+\right]
+  \]
+</p>
+
+<p>Assume that \( x_{i+1} \) and \( z_i \) are perpendicular (DH1)</p>
+
+<p>If two vectors are perpendicular to each other, then their dot product must be 0.</p>
+\[
+  \begin{eqnarray}
+  x_{i-1} \cdot z_i = 0\\ 
+  [r_{11}, r_{12}, r_{13} ]^T \cdot [0, 0, 1]^T = 0
+  \end{eqnarray}
+\]
+</p>
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-52c4f484-a607-4e36-8e06-d34c4aa3ada3" ><span id="id-52c4f484-a607-4e36-8e06-d34c4aa3ada3"><img id="img-id-52c4f484-a607-4e36-8e06-d34c4aa3ada3"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-164e9df1-e4ed-4507-97ab-4e743bb15b34" ><span id="id-164e9df1-e4ed-4507-97ab-4e743bb15b34"><img id="img-id-164e9df1-e4ed-4507-97ab-4e743bb15b34" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00008_frag_00001" data-state="slide_00008_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<div class="jb-text">
+<p>From this equation, we can conclude</p>
+\[
+  r_{31} = 0\\
+\]
+<p>
+\[
+\begin{eqnarray}
+R^{i-1}_i  = R_{z,\theta} R_{x,\alpha} = \\
+\left[
+      \begin{array}{ccc}
+        \cos(\theta) & -\sin(\theta) cos(\alpha) & \sin(\theta) sin(\alpha) \\
+        \sin(\theta) & \cos(\theta) cos(\alpha) & -\cos(\theta) sin(\alpha) \\
+        0 & sin(\alpha) & cos(\alpha) \\
+      \end{array}           
+\right]
+\end{eqnarray}
+\]
+</p>
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-1d233608-85ee-4326-8929-6f5e1806f250" ><span id="id-1d233608-85ee-4326-8929-6f5e1806f250"><img id="img-id-1d233608-85ee-4326-8929-6f5e1806f250"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-ab72762b-fb2a-4d96-a8be-9c2854ab8ff4" ><span id="id-ab72762b-fb2a-4d96-a8be-9c2854ab8ff4"><img id="img-id-ab72762b-fb2a-4d96-a8be-9c2854ab8ff4" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00009_frag_00001" data-state="slide_00009_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+<div class="jb-input jb-render jb-code" style="text-align:center">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-input-code jb-render">
+<div class="highlight" style="background: #f8f8f8; color:#101010;display=inline-block;"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic">#--style=&quot;font-size:0.5em&quot;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sympy</span>
+sympy<span style="color: #666666">.</span>init_printing(use_unicode<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sympy.printing.mathml</span> <span style="color: #008000; font-weight: bold">import</span> print_mathml
+
+t, a <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>symbols( <span style="color: #BA2121">&#39;θ  α&#39;</span>)
+
+rxt <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ sympy<span style="color: #666666">.</span>cos(t), <span style="color: #666666">-</span>sympy<span style="color: #666666">.</span>sin(t), <span style="color: #666666">0</span> ], [ sympy<span style="color: #666666">.</span>sin(t), sympy<span style="color: #666666">.</span>cos(t), <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span> ] ] )
+rxa <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, sympy<span style="color: #666666">.</span>cos(a), <span style="color: #666666">-</span>sympy<span style="color: #666666">.</span>sin(a) ], [ <span style="color: #666666">0</span>, sympy<span style="color: #666666">.</span>sin(a), sympy<span style="color: #666666">.</span>cos(a) ] ] )
+
+r <span style="color: #666666">=</span> rxt <span style="color: #666666">*</span> rxa
+
+sympy<span style="color: #666666">.</span>pprint(r)
+</pre></div>
+
+</div><!-- end of jb-input-code jb-render -->
+
+</div>
+<div class="jb-print jb-render">
+<div class="jb-output jb-render code" style="text-align:center">
+<div class="jb-stdout code" style="display:inline-block; width:90%">
+<pre >
+⎡cos(θ)  -sin(θ)⋅cos(α)  sin(α)⋅sin(θ) ⎤
+⎢                                      ⎥
+⎢sin(θ)  cos(α)⋅cos(θ)   -sin(α)⋅cos(θ)⎥
+⎢                                      ⎥
+⎣  0         sin(α)          cos(α)    ⎦
+</pre>
+</div>
+</div>
+
+</div><!-- end of jb-print jb-render -->
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-eae12f56-6745-42fd-9db2-d0ef17bbb0f0" ><span id="id-eae12f56-6745-42fd-9db2-d0ef17bbb0f0"><img id="img-id-eae12f56-6745-42fd-9db2-d0ef17bbb0f0"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-4bed6a28-464c-41e6-bbf0-a6dce7ee20a2" ><span id="id-4bed6a28-464c-41e6-bbf0-a6dce7ee20a2"><img id="img-id-4bed6a28-464c-41e6-bbf0-a6dce7ee20a2" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00010_frag_00001" data-state="slide_00010_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>DH Assumption</h1>
+
+<div class="jb-text">
+  <p>Assume that \( x_{i-1} \) and \( z_i \) intersect (DH2)</p>
+
+  <p>Displacement from \( o^{i-1}_{i} \) can be expressed as a linear combination of \( z_{i-1} \) and \( x_i \)</p>
+
+  <p>
+ \[
+   o^{i-1}_{i} = o^{i-1}_{i-1} + d z_{i-1} + a x_{i}\\
+   o^{i-1}_{i} = \left[ \begin{array}{c} 0 \\ 0 \\ 0 \end{array} \right]  + d \left[ \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right] + 
+   a \left[ \begin{array}{c} \cos \theta \\ \sin{\theta} \\ 0 \end{array} \right]\\
+   o^{i-1}_{i} = \left[ \begin{array}{c} a \cos \theta \\ a \sin \theta \\ d \end{array} \right]
+ \]
+  </p>
+
+
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-6cb8ec5e-044f-40c9-8f12-5ccb9a4a32ad" ><span id="id-6cb8ec5e-044f-40c9-8f12-5ccb9a4a32ad"><img id="img-id-6cb8ec5e-044f-40c9-8f12-5ccb9a4a32ad"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-bcc75336-0981-4889-93fe-a59030640b5d" ><span id="id-bcc75336-0981-4889-93fe-a59030640b5d"><img id="img-id-bcc75336-0981-4889-93fe-a59030640b5d" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00011_frag_00001" data-state="slide_00011_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>Denavit Hartenberg Convention</h1>
+
+<div class="jb-text">
+<p>Transformation matrix is now defined by four numbers joint angle \( \theta \), link offset \( d \), link length \( a \), 
+link twist \( \alpha \)</p>
+\[
+  A^{i-1}_i = R_{z,\theta} T_{z,d} T_{x,a} R_{x,\alpha}
+\]
+</p>
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-2de1971f-6b7d-4893-8fb9-1299e368182a" ><span id="id-2de1971f-6b7d-4893-8fb9-1299e368182a"><img id="img-id-2de1971f-6b7d-4893-8fb9-1299e368182a"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-ce8368a0-052b-47d2-a8f9-3c9fe94553d8" ><span id="id-ce8368a0-052b-47d2-a8f9-3c9fe94553d8"><img id="img-id-ce8368a0-052b-47d2-a8f9-3c9fe94553d8" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00012_frag_00001" data-state="slide_00012_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+<div class="jb-input jb-render jb-code" style="text-align:center">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-input-code jb-render">
+<div class="highlight" style="background: #f8f8f8; color:#101010;display=inline-block;"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic">#--style=&quot;font-size:0.5em&quot;</span>
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sympy</span>
+sympy<span style="color: #666666">.</span>init_printing(use_unicode<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sympy.printing.mathml</span> <span style="color: #008000; font-weight: bold">import</span> print_mathml
+
+t, a, dd, aa <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>symbols( <span style="color: #BA2121">&#39;θ  α d a&#39;</span>)
+
+rzt <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ sympy<span style="color: #666666">.</span>cos(t), <span style="color: #666666">-</span>sympy<span style="color: #666666">.</span>sin(t), <span style="color: #666666">0</span>, <span style="color: #666666">0</span> ], [ sympy<span style="color: #666666">.</span>sin(t), sympy<span style="color: #666666">.</span>cos(t), <span style="color: #666666">0</span>, <span style="color: #666666">0</span>  ], [ <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">0</span> ], [<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>] ] )
+tzd <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>  ], [ <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>, dd ], [<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>] ] )
+txa <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, aa ], [ <span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>  ], [ <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">0</span> ], [<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span>] ] )
+rxa <span style="color: #666666">=</span> sympy<span style="color: #666666">.</span>Matrix( [ [ <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, sympy<span style="color: #666666">.</span>cos(a), <span style="color: #666666">-</span>sympy<span style="color: #666666">.</span>sin(a), <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, sympy<span style="color: #666666">.</span>sin(a), sympy<span style="color: #666666">.</span>cos(a), <span style="color: #666666">0</span> ], [ <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">1</span> ] ] )
+
+r <span style="color: #666666">=</span> rzt <span style="color: #666666">*</span> tzd <span style="color: #666666">*</span> txa <span style="color: #666666">*</span> rxa 
+
+sympy<span style="color: #666666">.</span>pprint(r)
+</pre></div>
+
+</div><!-- end of jb-input-code jb-render -->
+
+</div>
+<div class="jb-print jb-render">
+<div class="jb-output jb-render code" style="text-align:center">
+<div class="jb-stdout code" style="display:inline-block; width:90%">
+<pre >
+⎡cos(θ)  -sin(θ)⋅cos(α)  sin(α)⋅sin(θ)   a⋅cos(θ)⎤
+⎢                                                ⎥
+⎢sin(θ)  cos(α)⋅cos(θ)   -sin(α)⋅cos(θ)  a⋅sin(θ)⎥
+⎢                                                ⎥
+⎢  0         sin(α)          cos(α)         d    ⎥
+⎢                                                ⎥
+⎣  0           0               0            1    ⎦
+</pre>
+</div>
+</div>
+
+</div><!-- end of jb-print jb-render -->
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-5c7ed700-ea8f-4404-9a95-d7f6fff73a5d" ><span id="id-5c7ed700-ea8f-4404-9a95-d7f6fff73a5d"><img id="img-id-5c7ed700-ea8f-4404-9a95-d7f6fff73a5d"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-565fc702-3290-484e-bc91-7450e95a0ddc" ><span id="id-565fc702-3290-484e-bc91-7450e95a0ddc"><img id="img-id-565fc702-3290-484e-bc91-7450e95a0ddc" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00013_frag_00001" data-state="slide_00013_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>DH Interpretation</h1>
+
+<div class="jb-text">
+<p><span class="jb-emph">Joint angle</span> θ is the angle between \( x_{i-1} \) and \( x_{i} \)</p>
+<p><span class="jb-emph">Link offset</span> d is the distance from the origian of \( o_{i-1} \) to the intersection point
+between \(z_{i-1}\) and \( x_{i} \), measured along \( z_{i-1} \)</p>
+<p><span class="jb-emph">Link length</span> a is the distance between \( z_{i-1} \) and \( z_i \) measured along \( x_i \)</p>
+<p><span class="jb-emph">Link twist</span> α is the angle between \( z_{i-1}\) and \( z_i\) measured in a plane normal to \( x_i \)</p>
+
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-ce5abbff-d536-4ed4-ab32-175bd52f38dd" ><span id="id-ce5abbff-d536-4ed4-ab32-175bd52f38dd"><img id="img-id-ce5abbff-d536-4ed4-ab32-175bd52f38dd"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-07d8368a-1d00-4935-8b50-74f2889789c8" ><span id="id-07d8368a-1d00-4935-8b50-74f2889789c8"><img id="img-id-07d8368a-1d00-4935-8b50-74f2889789c8" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00014_frag_00001" data-state="slide_00014_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>Assigning Frames for Kinematics</h1>
+
+<div class="jb-text">
+<p>Start with the inertial frame (Frame 0) and then iterate to 1, ... n</p>
+<p>Axis \( z_0 \cdots z_{n-1} \) can be assigned arbitrarily since \( α_i \) and \( θ_i \) can compensate. Select intuitive directions for
+\( z_0 \cdots z_{n-1} \)
+<p>\( z_{i-1} \) is the axis of actuation for joint \( i \)
+<p>Once Z axis have been assigned, set up the world frame/inertial frame/frame 0</p>
+<p>Origin of intertial frame must lie somewhere along \( z_0 \)</p>
+<p>Set up axis \( x_0 \) and \( y_0 \) in such a way that it makes sense and is a right handed coordinate system.</p>
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-4a183646-1e7c-4ea7-8c9d-4d921a768fce" ><span id="id-4a183646-1e7c-4ea7-8c9d-4d921a768fce"><img id="img-id-4a183646-1e7c-4ea7-8c9d-4d921a768fce"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-6113217e-813c-48f6-8438-5e4446198c98" ><span id="id-6113217e-813c-48f6-8438-5e4446198c98"><img id="img-id-6113217e-813c-48f6-8438-5e4446198c98" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00015_frag_00001" data-state="slide_00015_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>Assigning Coordinate Frames</h1>
+
+<div class="jb-text">
+<p>Three cases to consider</p>
+<ul>
+<li>\( z_{i-1} \) and \( z_i \) are not co-planar</li>
+<p>\( x_i \) must be the shortest line between \( z_{i-1} \) and \( z_i \). Origin \(o_i\) will be at 
+intersection of \(x_i\) and \(z_i\). Assign \( y_i\) to make it a right-handed cooredinate system</p>
+
+<li>\( z_{i-1} \) and \( z_i \) are intersect</li>
+<p>\(x_i\) must be the normal passing through the plane spanned by \(z_{i-1} \) and \( z_i \) and going through the point of
+intersection of \(z_{i-1} \) and \( z_i \). Origin of \( o_i\) is at the intersection. Assign \(y_i\) to 
+make it a right-handed coordinate system.
+
+<li>\( z_{i-1} \) and \( z_i \) are parallel</li>
+<p>Choose \( x_i \) anywhere alone \(z_i\). Align \( x_i\) so that \( d_i\) is 0. 
+\( \alpha_i \) will be 0, since \(z_{i-1} \) and \( z_i \) are parallel
+</ul>
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-66b26d44-fedf-4701-a199-0bc0cc8a4c49" ><span id="id-66b26d44-fedf-4701-a199-0bc0cc8a4c49"><img id="img-id-66b26d44-fedf-4701-a199-0bc0cc8a4c49"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-152848c9-ea7b-4bb1-b6ed-00f385f00896" ><span id="id-152848c9-ea7b-4bb1-b6ed-00f385f00896"><img id="img-id-152848c9-ea7b-4bb1-b6ed-00f385f00896" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+<section id="slide_00016_frag_00001" data-state="slide_00016_frag_00001">
+
+
+<!-- Header -->
+  
+
+<!-- Background -->
+
+
+<!-- Slide -->
+<div class="jb-slide">
+
+<div class="jb-output-code jb-render">
+
+<!-- start embedded style -->
+
+<!-- end embedded style -->
+<div class="jb-output jb-render">
+
+<h1>DH Algorithm</h1>
+
+<div class="jb-text">
+<p>Assign z-axis as axis of actuation</p>
+<p>Assign frames based position of z-axis. Assign y coordinate to make it a 
+right-handed coordinate system.</p>
+<p>Create a table of parameters (DH-table) Joint angle, link offset, link length, link twist</p>
+<p>Calculate the homogeneous transformation matrices</p>
+<p>Calculate the compound transformations \( T^0_n = A_1(\theta_1) A_2(\theta_1) \cdots A_n(\theta_n) \)
+
+</div>
+</div><!-- end of jb-output jb-render -->
+</div><!-- end of jb-output-code jb-render -->
+
+
+</div>
+<!-- Footer -->
+
+<div class="jb-footer-left plain">
+    <span id="id-727f01ec-7e5e-457e-83a5-3e9477084bd7" ><span id="id-727f01ec-7e5e-457e-83a5-3e9477084bd7"><img id="img-id-727f01ec-7e5e-457e-83a5-3e9477084bd7"     src="assets/images/logo.png"/></span>
+</span>
+
+</div>
+<div class="jb-footer-right plain">
+    <span id="id-f6ff94b9-6650-4c7b-8dea-e9340ffe6df5" ><span id="id-f6ff94b9-6650-4c7b-8dea-e9340ffe6df5"><img id="img-id-f6ff94b9-6650-4c7b-8dea-e9340ffe6df5" width="162" height="138"   src="assets/images/robbi.png"/></span>
+</span>
+
+</div>
+
+<aside class="notes">
+
+</aside>
+
+
+
+</section>
+        </div>
+        </div>
+
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                math: {
+                    mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                    config: 'TeX-AMS_HTML-full',  // See http://docs.mathjax.org/en/latest/config-files.html
+                    // tex2jax: {
+                    //     inlineMath: [['$', '$'], ['\(', '\)']],
+                    //     displayMath: [['$$', '$$'], ['\[', '\]']],
+                    //     processEscapes: true,
+                    //     processEnvironments: true,
+                    //     skipTags: ['script', 'noscript', 'style', 'textarea', 'code', 'pre'],
+                    //     displayAlign: 'center',
+                    // }                
+                },
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+
+        <script>
+            <!-- Assets -->
+var assets = {
+"robbi" : new JBImage( "robbi", "12677", "162", "138", null, null, "assets/images/robbi", "png" ),
+"logo" : new JBImage( "logo", "12033", "0", "0", null, null, "assets/images/logo", "png" ),
+"fira-logo-1" : new JBImage( "fira-logo-1", "93836", "0", "0", null, null, "assets/images/FIRA-logo-1", "png" ),
+"pairLogo" : new JBImage( "pairLogo", "63051", "0", "0", null, null, "assets/images/pairLogo", "png" ),
+"thor1" : new JBImage( "thor1", "100093", "0", "0", "http://emanual.robotis.com/assets/images/platform/thormang3/thormang3_005.jpg", null, "assets/images/thor1", "jpg" ) 
+};
+var assetInstances = {
+    "id-22839ac6-a467-4715-9318-82559abb7863": assets["robbi"],
+    "id-2d745f77-6e3e-44fa-8b63-ac75a4b449f1": assets["robbi"],
+    "id-7abb1dbe-bb45-468c-bb4b-f937dbc19527": assets["robbi"],
+    "id-9fb09da1-d5db-43b9-a049-559e377c6674": assets["robbi"],
+    "id-85d0ced1-b314-473e-87eb-7dec1ca058b9": assets["robbi"],
+    "id-164e9df1-e4ed-4507-97ab-4e743bb15b34": assets["robbi"],
+    "id-ab72762b-fb2a-4d96-a8be-9c2854ab8ff4": assets["robbi"],
+    "id-4bed6a28-464c-41e6-bbf0-a6dce7ee20a2": assets["robbi"],
+    "id-bcc75336-0981-4889-93fe-a59030640b5d": assets["robbi"],
+    "id-ce8368a0-052b-47d2-a8f9-3c9fe94553d8": assets["robbi"],
+    "id-565fc702-3290-484e-bc91-7450e95a0ddc": assets["robbi"],
+    "id-07d8368a-1d00-4935-8b50-74f2889789c8": assets["robbi"],
+    "id-6113217e-813c-48f6-8438-5e4446198c98": assets["robbi"],
+    "id-152848c9-ea7b-4bb1-b6ed-00f385f00896": assets["robbi"],
+    "id-f6ff94b9-6650-4c7b-8dea-e9340ffe6df5": assets["robbi"],
+    "id-fdc9ea4b-cc33-42f3-aa9a-7b506fe5d628": assets["logo"],
+    "id-a87c36da-9526-4e36-aced-c5a3313f56cb": assets["logo"],
+    "id-b9dfecba-2d1f-4398-ad71-3867e85d8335": assets["logo"],
+    "id-a0646f31-d661-4ab6-949f-f3ecda29162b": assets["logo"],
+    "id-94f18b84-50ee-42a1-af17-c7f9b60f9d08": assets["logo"],
+    "id-52c4f484-a607-4e36-8e06-d34c4aa3ada3": assets["logo"],
+    "id-1d233608-85ee-4326-8929-6f5e1806f250": assets["logo"],
+    "id-eae12f56-6745-42fd-9db2-d0ef17bbb0f0": assets["logo"],
+    "id-6cb8ec5e-044f-40c9-8f12-5ccb9a4a32ad": assets["logo"],
+    "id-2de1971f-6b7d-4893-8fb9-1299e368182a": assets["logo"],
+    "id-5c7ed700-ea8f-4404-9a95-d7f6fff73a5d": assets["logo"],
+    "id-ce5abbff-d536-4ed4-ab32-175bd52f38dd": assets["logo"],
+    "id-4a183646-1e7c-4ea7-8c9d-4d921a768fce": assets["logo"],
+    "id-66b26d44-fedf-4701-a199-0bc0cc8a4c49": assets["logo"],
+    "id-727f01ec-7e5e-457e-83a5-3e9477084bd7": assets["logo"],
+    "id-3d7e13a9-73bf-4de4-b930-1c4a1624fe9f": assets["thor1"]
+};
+<!-- End of Assets -->
+
+            convertURLs(assetInstances, "smart-path");
+        </script>
+        <script>
+            <!-- Characters -->
+var characters =
+{};
+<!-- End of Characters -->
+
+        </script>
+    </body>
+</html>
